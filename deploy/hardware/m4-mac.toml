@@ -1,0 +1,21 @@
+[hardware]
+name = "M4 Mac"
+chip = "Apple M4"
+memory_gb = 16
+os = "macOS 15+"
+
+[guardian-gym]
+model = "llama3.2:3b"
+ollama_url = "http://localhost:11434"
+scenarios_per_generation = 200
+population_size = 8
+generations = 20
+
+[guardian-gym.profiles]
+default = "child"
+available = ["child", "senior"]
+
+[guardian-gym.graduation]
+min_detection_rate = 0.95
+max_false_positive_rate = 0.05
+min_generations = 5

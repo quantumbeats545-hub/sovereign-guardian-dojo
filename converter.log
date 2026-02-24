@@ -1,0 +1,8 @@
+No new posts to convert.
+No new attack patterns found.
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-dojo/python/moltbook_to_dojo.py:484: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ts = int(datetime.utcnow().timestamp())
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-dojo/python/moltbook_to_dojo.py:321: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+Converted 33 posts → 5 agent dojo + 0 guardian dojo scenarios
+No new attack patterns found.

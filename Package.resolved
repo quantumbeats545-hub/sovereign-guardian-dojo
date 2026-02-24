@@ -1,0 +1,32 @@
+{
+  "pins" : [
+    {
+      "identity" : "grdb.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/groue/GRDB.swift.git",
+      "state" : {
+        "revision" : "2cf6c756e1e5ef6901ebae16576a7e4e4b834622",
+        "version" : "6.29.3"
+      }
+    },
+    {
+      "identity" : "sovereign-dojo-core",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/quantumbeats545-hub/sovereign-dojo-core.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "6e07225d2eca69e233ecd57f4b5b9a352c941794"
+      }
+    },
+    {
+      "identity" : "swift-argument-parser",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-argument-parser.git",
+      "state" : {
+        "revision" : "c5d11a805e765f52ba34ec7284bd4fcd6ba68615",
+        "version" : "1.7.0"
+      }
+    }
+  ],
+  "version" : 2
+}

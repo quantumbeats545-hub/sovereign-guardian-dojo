@@ -1,0 +1,11 @@
+[0/1] Planning build
+Building for debugging...
+[0/3] Write swift-version-2E17D80BA6F3A4E9.txt
+[2/4] Emitting module GuardianCore
+[3/5] Emitting module GuardianGym
+[4/6] Emitting module GuardianCLI
+Build of product 'guardian-gym' complete! (1.12s)
+Error: Missing value for '--model <model>'
+Help:  --model <model>  Ollama model name
+Usage: guardian-gym evolve [--generations <generations>] [--population <population>] [--scenarios <scenarios>] [--model <model>] [--ollama-url <ollama-url>] [--elite-fraction <elite-fraction>] [--profile-type <profile-type>] [--db-path <db-path>]
+  See 'guardian-gym evolve --help' for more information.

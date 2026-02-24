@@ -1,0 +1,530 @@
+Observer starting — read-only, no registration, revocable.
+  once  = single test cycle
+  kill  = C' revocation
+Cycle 1 [hot]: 25 new, 0 dupes
+Cycle 1 [s/security]: 15 new, 0 dupes
+Cycle 1 [search:install+skill]: 10 new, 0 dupes
+Next poll in 33m 12s
+Cycle 2 [hot]: 0 new, 25 dupes
+Cycle 2 [s/trading]: 15 new, 0 dupes
+Cycle 2 [search:trust+me]: 10 new, 0 dupes
+Next poll in 20m 39s
+Cycle 3 [hot]: 0 new, 25 dupes
+Cycle 3 [new]: 25 new, 0 dupes
+Cycle 3 [s/agentfinance]: 15 new, 0 dupes
+Cycle 3 [search:send+tokens]: 10 new, 0 dupes
+Next poll in 32m 21s
+Cycle 4 [hot]: 0 new, 25 dupes
+Cycle 4 [s/introductions]: 15 new, 0 dupes
+Cycle 4 [search:free+airdrop]: 10 new, 0 dupes
+Next poll in 22m 5s
+Cycle 5 [hot]: 0 new, 25 dupes
+Cycle 5 [s/crypto]: 14 new, 1 dupes
+Cycle 5 [search:hack+agent]: 10 new, 0 dupes
+Next poll in 23m 22s
+Cycle 6 [hot]: 0 new, 25 dupes
+Cycle 6 [new]: 25 new, 0 dupes
+Cycle 6 [s/security]: 7 new, 8 dupes
+Cycle 6 [search:give+me+access]: 10 new, 0 dupes
+Next poll in 35m 52s
+Cycle 7 [hot]: 0 new, 25 dupes
+Cycle 7 [s/trading]: 10 new, 5 dupes
+Cycle 7 [search:run+this+command]: 10 new, 0 dupes
+Next poll in 34m 44s
+Cycle 8 [hot]: 0 new, 25 dupes
+Cycle 8 [s/agentfinance]: 6 new, 9 dupes
+Cycle 8 [search:send+api+key]: 9 new, 1 dupes
+Next poll in 37m 44s
+Cycle 9 [hot]: 0 new, 25 dupes
+Cycle 9 [new]: 25 new, 0 dupes
+Cycle 9 [s/introductions]: 14 new, 1 dupes
+Cycle 9 [search:install+skill]: 0 new, 10 dupes
+Next poll in 22m 56s
+Cycle 10 [hot]: 0 new, 25 dupes
+Cycle 10 [s/crypto]: 15 new, 0 dupes
+Cycle 10 [search:trust+me]: 0 new, 10 dupes
+Next poll in 25m 43s
+Cycle 11 [hot]: 0 new, 25 dupes
+Cycle 11 [s/security]: 3 new, 12 dupes
+Cycle 11 [search:send+tokens]: 0 new, 10 dupes
+Next poll in 32m 19s
+Cycle 12 [hot]: 0 new, 25 dupes
+Cycle 12 [new]: 25 new, 0 dupes
+Cycle 12 [s/trading]: 7 new, 8 dupes
+Cycle 12 [search:free+airdrop]: 0 new, 10 dupes
+Next poll in 32m 51s
+Cycle 13 [hot]: 0 new, 25 dupes
+Cycle 13 [s/agentfinance]: 7 new, 8 dupes
+Cycle 13 [search:hack+agent]: 0 new, 10 dupes
+Next poll in 30m 46s
+Cycle 14 [hot]: 0 new, 25 dupes
+Cycle 14 [s/introductions]: 15 new, 0 dupes
+Cycle 14 [search:give+me+access]: 0 new, 10 dupes
+Next poll in 38m 45s
+Cycle 15 [hot]: 0 new, 25 dupes
+Cycle 15 [new]: 25 new, 0 dupes
+Cycle 15 [s/crypto]: 14 new, 1 dupes
+Cycle 15 [search:run+this+command]: 0 new, 10 dupes
+Next poll in 23m 53s
+Cycle 16 [hot]: 0 new, 25 dupes
+Cycle 16 [s/security]: 9 new, 6 dupes
+Cycle 16 [search:send+api+key]: 0 new, 10 dupes
+Next poll in 29m 55s
+in <module>
+    def run_cycle(seen_ids: set, cycle: int, sorts: list[str] | None = None):
+TypeError: unsupported operand type(s) for |: 'types.GenericAlias' and 'NoneType'
+Traceback (most recent call last):
+  File "/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_bridge.py", line 120, in <module>
+    def run_cycle(seen_ids: set, cycle: int, sorts: list[str] | None = None):
+TypeError: unsupported operand type(s) for |: 'types.GenericAlias' and 'NoneType'
+Observer starting — read-only, no registration, revocable.
+  once  = single test cycle
+  kill  = C' revocation
+Cycle 1 [hot]: 25 new, 0 dupes
+Cycle 1 [new]: 25 new, 0 dupes
+Cycle 1 [s/crypto/hot]: 15 new, 0 dupes
+Cycle 1 [s/crypto/new]: 15 new, 0 dupes
+Cycle 1 [s/trading/hot]: 15 new, 0 dupes
+Cycle 1 [s/trading/new]: 15 new, 0 dupes
+Cycle 1 [s/agentfinance]: 14 new, 1 dupes
+Cycle 1 [search:install+skill]: 10 new, 0 dupes
+Next poll in 38m 54s
+Observer starting — read-only, no registration, revocable.
+  once  = single test cycle
+  kill  = C' revocation
+Cycle 1 [hot]: 25 new, 0 dupes
+Cycle 1 [new]: 25 new, 0 dupes
+Cycle 1 [s/crypto/hot]: 15 new, 0 dupes
+Cycle 1 [s/crypto/new]: 15 new, 0 dupes
+Cycle 1 [s/trading/hot]: 15 new, 0 dupes
+Cycle 1 [s/trading/new]: 15 new, 0 dupes
+Cycle 1 [s/agentfinance]: 14 new, 1 dupes
+Cycle 1 [search:install+skill]: network error: HTTP Error 429: Too Many Requests
+Next poll in 28m 13s
+Cycle 2 [hot]: 0 new, 25 dupes
+Cycle 2 [new]: 25 new, 0 dupes
+Cycle 2 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 2 [s/crypto/new]: 7 new, 8 dupes
+Cycle 2 [s/trading/hot]: 0 new, 15 dupes
+Cycle 2 [s/trading/new]: 4 new, 11 dupes
+Cycle 2 [s/introductions]: 14 new, 1 dupes
+Cycle 2 [search:trust+me]: 10 new, 0 dupes
+Next poll in 37m 52s
+Cycle 3 [hot]: 0 new, 25 dupes
+Cycle 3 [new]: 25 new, 0 dupes
+Cycle 3 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 3 [s/crypto/new]: 1 new, 14 dupes
+Cycle 3 [s/trading/hot]: 0 new, 15 dupes
+Cycle 3 [s/trading/new]: 1 new, 14 dupes
+Cycle 3 [s/security]: 14 new, 1 dupes
+Cycle 3 [search:send+tokens]: 10 new, 0 dupes
+Next poll in 34m 31s
+Cycle 4 [hot]: 0 new, 25 dupes
+Cycle 4 [new]: 25 new, 0 dupes
+Cycle 4 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 4 [s/crypto/new]: 2 new, 13 dupes
+Cycle 4 [s/trading/hot]: 0 new, 15 dupes
+Cycle 4 [s/trading/new]: 0 new, 15 dupes
+Cycle 4 [s/agentfinance]: 3 new, 12 dupes
+Cycle 4 [search:free+airdrop]: 10 new, 0 dupes
+Next poll in 21m 56s
+Cycle 5 [hot]: 0 new, 25 dupes
+Cycle 5 [new]: 25 new, 0 dupes
+Cycle 5 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 5 [s/crypto/new]: 1 new, 14 dupes
+Cycle 5 [s/trading/hot]: 0 new, 15 dupes
+Cycle 5 [s/trading/new]: 7 new, 8 dupes
+Cycle 5 [s/introductions]: 14 new, 1 dupes
+Cycle 5 [search:hack+agent]: 10 new, 0 dupes
+Next poll in 20m 23s
+Cycle 6 [hot]: 0 new, 25 dupes
+Cycle 6 [new]: 25 new, 0 dupes
+Cycle 6 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 6 [s/crypto/new]: 2 new, 13 dupes
+Cycle 6 [s/trading/hot]: 0 new, 15 dupes
+Cycle 6 [s/trading/new]: 2 new, 13 dupes
+Cycle 6 [s/security]: 3 new, 12 dupes
+Cycle 6 [search:give+me+access]: 10 new, 0 dupes
+Next poll in 35m 13s
+Cycle 7 [hot]: 0 new, 25 dupes
+Cycle 7 [new]: 25 new, 0 dupes
+Cycle 7 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 7 [s/crypto/new]: 0 new, 15 dupes
+Cycle 7 [s/trading/hot]: 0 new, 15 dupes
+Cycle 7 [s/trading/new]: 3 new, 12 dupes
+Cycle 7 [s/agentfinance]: 2 new, 13 dupes
+Cycle 7 [search:run+this+command]: 10 new, 0 dupes
+Next poll in 36m 32s
+Cycle 8 [hot]: 0 new, 25 dupes
+Cycle 8 [new]: 25 new, 0 dupes
+Cycle 8 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 8 [s/crypto/new]: 6 new, 9 dupes
+Cycle 8 [s/trading/hot]: 0 new, 15 dupes
+Cycle 8 [s/trading/new]: 2 new, 13 dupes
+Cycle 8 [s/introductions]: 5 new, 10 dupes
+Cycle 8 [search:send+api+key]: 9 new, 1 dupes
+Next poll in 29m 3s
+Cycle 9 [hot]: 0 new, 25 dupes
+Cycle 9 [new]: 25 new, 0 dupes
+Cycle 9 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 9 [s/crypto/new]: 0 new, 15 dupes
+Cycle 9 [s/trading/hot]: 0 new, 15 dupes
+Cycle 9 [s/trading/new]: 0 new, 15 dupes
+Cycle 9 [s/security]: 9 new, 6 dupes
+Cycle 9 [search:install+skill]: 10 new, 0 dupes
+Next poll in 20m 51s
+Cycle 10 [hot]: 0 new, 25 dupes
+Cycle 10 [new]: 25 new, 0 dupes
+Cycle 10 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 10 [s/crypto/new]: 0 new, 15 dupes
+Cycle 10 [s/trading/hot]: 0 new, 15 dupes
+Cycle 10 [s/trading/new]: 0 new, 15 dupes
+Cycle 10 [s/agentfinance]: 3 new, 12 dupes
+Cycle 10 [search:trust+me]: 0 new, 10 dupes
+Next poll in 27m 24s
+Cycle 11 [hot]: 0 new, 25 dupes
+Cycle 11 [new]: 25 new, 0 dupes
+Cycle 11 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 11 [s/crypto/new]: 1 new, 14 dupes
+Cycle 11 [s/trading/hot]: 0 new, 15 dupes
+Cycle 11 [s/trading/new]: 4 new, 11 dupes
+Cycle 11 [s/introductions]: 13 new, 2 dupes
+Cycle 11 [search:send+tokens]: 0 new, 10 dupes
+Next poll in 21m 19s
+Cycle 12 [hot]: 0 new, 25 dupes
+Cycle 12 [new]: 25 new, 0 dupes
+Cycle 12 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 12 [s/crypto/new]: 2 new, 13 dupes
+Cycle 12 [s/trading/hot]: 0 new, 15 dupes
+Cycle 12 [s/trading/new]: 1 new, 14 dupes
+Cycle 12 [s/security]: 1 new, 14 dupes
+Cycle 12 [search:free+airdrop]: 0 new, 10 dupes
+Next poll in 25m 59s
+Cycle 13 [hot]: 0 new, 25 dupes
+Cycle 13 [new]: 25 new, 0 dupes
+Cycle 13 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 13 [s/crypto/new]: 3 new, 12 dupes
+Cycle 13 [s/trading/hot]: 0 new, 15 dupes
+Cycle 13 [s/trading/new]: 0 new, 15 dupes
+Cycle 13 [s/agentfinance]: 1 new, 14 dupes
+Cycle 13 [search:hack+agent]: 0 new, 10 dupes
+Next poll in 32m 32s
+Cycle 14 [hot]: 0 new, 25 dupes
+Cycle 14 [new]: 25 new, 0 dupes
+Cycle 14 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 14 [s/crypto/new]: 2 new, 13 dupes
+Cycle 14 [s/trading/hot]: 0 new, 15 dupes
+Cycle 14 [s/trading/new]: 1 new, 14 dupes
+Cycle 14 [s/introductions]: 4 new, 11 dupes
+Cycle 14 [search:give+me+access]: 0 new, 10 dupes
+Next poll in 30m 49s
+Cycle 15 [hot]: 0 new, 25 dupes
+Cycle 15 [new]: 25 new, 0 dupes
+Cycle 15 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 15 [s/crypto/new]: 3 new, 12 dupes
+Cycle 15 [s/trading/hot]: 0 new, 15 dupes
+Cycle 15 [s/trading/new]: 2 new, 13 dupes
+Cycle 15 [s/security]: 4 new, 11 dupes
+Cycle 15 [search:run+this+command]: 0 new, 10 dupes
+Next poll in 32m 18s
+Cycle 16 [hot]: 0 new, 25 dupes
+Cycle 16 [new]: 25 new, 0 dupes
+Cycle 16 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 16 [s/crypto/new]: 1 new, 14 dupes
+Cycle 16 [s/trading/hot]: 0 new, 15 dupes
+Cycle 16 [s/trading/new]: 0 new, 15 dupes
+Cycle 16 [s/agentfinance]: 1 new, 14 dupes
+Cycle 16 [search:send+api+key]: 0 new, 10 dupes
+Next poll in 33m 5s
+Cycle 17 [hot]: 0 new, 25 dupes
+Cycle 17 [new]: 25 new, 0 dupes
+Cycle 17 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 17 [s/crypto/new]: 5 new, 10 dupes
+Cycle 17 [s/trading/hot]: 0 new, 15 dupes
+Cycle 17 [s/trading/new]: 3 new, 12 dupes
+Cycle 17 [s/introductions]: 11 new, 4 dupes
+Cycle 17 [search:install+skill]: 1 new, 9 dupes
+Next poll in 29m 10s
+Cycle 18 [hot]: 0 new, 25 dupes
+Cycle 18 [new]: 25 new, 0 dupes
+Cycle 18 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 18 [s/crypto/new]: 2 new, 13 dupes
+Cycle 18 [s/trading/hot]: 0 new, 15 dupes
+Cycle 18 [s/trading/new]: 1 new, 14 dupes
+Cycle 18 [s/security]: 3 new, 12 dupes
+Cycle 18 [search:trust+me]: 0 new, 10 dupes
+Next poll in 30m 20s
+Cycle 19 [hot]: 0 new, 25 dupes
+Cycle 19 [new]: 25 new, 0 dupes
+Cycle 19 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 19 [s/crypto/new]: 2 new, 13 dupes
+Cycle 19 [s/trading/hot]: 0 new, 15 dupes
+Cycle 19 [s/trading/new]: 0 new, 15 dupes
+Cycle 19 [s/agentfinance]: 2 new, 13 dupes
+Cycle 19 [search:send+tokens]: 0 new, 10 dupes
+Next poll in 36m 44s
+Cycle 20 [hot]: error: The read operation timed out
+Cycle 20 [new]: 25 new, 0 dupes
+Cycle 20 [s/crypto/hot]: error: The read operation timed out
+Cycle 20 [s/crypto/new]: 0 new, 15 dupes
+Cycle 20 [s/trading/hot]: error: The read operation timed out
+Cycle 20 [s/trading/new]: error: The read operation timed out
+Cycle 20 [s/introductions]: network error: HTTP Error 500: Internal Server Error
+Cycle 20 [search:free+airdrop]: error: The read operation timed out
+Next poll in 24m 13s
+Cycle 21 [hot]: 0 new, 25 dupes
+Cycle 21 [new]: 25 new, 0 dupes
+Cycle 21 [s/crypto/hot]: error: The read operation timed out
+Cycle 21 [s/crypto/new]: error: The read operation timed out
+Cycle 21 [s/trading/hot]: error: The read operation timed out
+Cycle 21 [s/trading/new]: error: The read operation timed out
+Cycle 21 [s/security]: error: The read operation timed out
+Cycle 21 [search:hack+agent]: error: The read operation timed out
+Next poll in 38m 10s
+Cycle 22 [hot]: 0 new, 25 dupes
+Cycle 22 [new]: 25 new, 0 dupes
+Cycle 22 [s/crypto/hot]: error: The read operation timed out
+Cycle 22 [s/crypto/new]: 1 new, 14 dupes
+Cycle 22 [s/trading/hot]: error: The read operation timed out
+Cycle 22 [s/trading/new]: error: The read operation timed out
+Cycle 22 [s/agentfinance]: 3 new, 12 dupes
+Cycle 22 [search:give+me+access]: error: The read operation timed out
+Next poll in 29m 8s
+Cycle 23 [hot]: error: The read operation timed out
+Cycle 23 [new]: 25 new, 0 dupes
+Cycle 23 [s/crypto/hot]: error: The read operation timed out
+Cycle 23 [s/crypto/new]: error: The read operation timed out
+Cycle 23 [s/trading/hot]: error: The read operation timed out
+Cycle 23 [s/trading/new]: error: The read operation timed out
+Cycle 23 [s/introductions]: error: The read operation timed out
+Cycle 23 [search:run+this+command]: error: The read operation timed out
+Next poll in 33m 42s
+Cycle 24 [hot]: 0 new, 25 dupes
+Cycle 24 [new]: 25 new, 0 dupes
+Cycle 24 [s/crypto/hot]: network error: HTTP Error 500: Internal Server Error
+Cycle 24 [s/crypto/new]: error: The read operation timed out
+Cycle 24 [s/trading/hot]: network error: HTTP Error 500: Internal Server Error
+Cycle 24 [s/trading/new]: error: The read operation timed out
+Cycle 24 [s/security]: network error: HTTP Error 500: Internal Server Error
+Cycle 24 [search:send+api+key]: error: The read operation timed out
+Next poll in 29m 15s
+Cycle 25 [hot]: 0 new, 25 dupes
+Cycle 25 [new]: 1 new, 24 dupes
+Cycle 25 [s/crypto/hot]: error: The read operation timed out
+Cycle 25 [s/crypto/new]: error: The read operation timed out
+Cycle 25 [s/trading/hot]: error: The read operation timed out
+Cycle 25 [s/trading/new]: error: The read operation timed out
+Cycle 25 [s/agentfinance]: network error: HTTP Error 500: Internal Server Error
+Cycle 25 [search:install+skill]: error: The read operation timed out
+Next poll in 22m 48s
+Cycle 26 [hot]: 0 new, 25 dupes
+Cycle 26 [new]: error: The read operation timed out
+Cycle 26 [s/crypto/hot]: error: The read operation timed out
+Cycle 26 [s/crypto/new]: error: The read operation timed out
+Cycle 26 [s/trading/hot]: error: The read operation timed out
+Cycle 26 [s/trading/new]: network error: HTTP Error 500: Internal Server Error
+Cycle 26 [s/introductions]: error: The read operation timed out
+Cycle 26 [search:trust+me]: error: The read operation timed out
+Next poll in 34m 11s
+Cycle 27 [hot]: 0 new, 25 dupes
+Cycle 27 [new]: 25 new, 0 dupes
+Cycle 27 [s/crypto/hot]: network error: HTTP Error 500: Internal Server Error
+Cycle 27 [s/crypto/new]: error: The read operation timed out
+Cycle 27 [s/trading/hot]: error: The read operation timed out
+Cycle 27 [s/trading/new]: error: The read operation timed out
+Cycle 27 [s/security]: error: The read operation timed out
+Cycle 27 [search:send+tokens]: error: The read operation timed out
+Next poll in 27m 31s
+Cycle 28 [hot]: error: The read operation timed out
+Cycle 28 [new]: 25 new, 0 dupes
+Cycle 28 [s/crypto/hot]: error: The read operation timed out
+Cycle 28 [s/crypto/new]: error: The read operation timed out
+Cycle 28 [s/trading/hot]: error: The read operation timed out
+Cycle 28 [s/trading/new]: error: The read operation timed out
+Cycle 28 [s/agentfinance]: error: The read operation timed out
+Cycle 28 [search:free+airdrop]: error: The read operation timed out
+Next poll in 27m 54s
+Cycle 29 [hot]: network error: HTTP Error 500: Internal Server Error
+Cycle 29 [new]: error: The read operation timed out
+Cycle 29 [s/crypto/hot]: error: The read operation timed out
+Cycle 29 [s/crypto/new]: error: The read operation timed out
+Cycle 29 [s/trading/hot]: error: The read operation timed out
+Cycle 29 [s/trading/new]: error: The read operation timed out
+Cycle 29 [s/introductions]: error: The read operation timed out
+Cycle 29 [search:hack+agent]: error: The read operation timed out
+Next poll in 39m 16s
+Cycle 30 [hot]: 0 new, 25 dupes
+Cycle 30 [new]: 0 new, 25 dupes
+Cycle 30 [s/crypto/hot]: error: The read operation timed out
+Cycle 30 [s/crypto/new]: network error: HTTP Error 500: Internal Server Error
+Cycle 30 [s/trading/hot]: error: The read operation timed out
+Cycle 30 [s/trading/new]: network error: HTTP Error 500: Internal Server Error
+Cycle 30 [s/security]: error: The read operation timed out
+Cycle 30 [search:give+me+access]: error: The read operation timed out
+Next poll in 20m 0s
+Cycle 31 [hot]: 0 new, 25 dupes
+Cycle 31 [new]: network error: HTTP Error 500: Internal Server Error
+Cycle 31 [s/crypto/hot]: error: The read operation timed out
+Cycle 31 [s/crypto/new]: error: The read operation timed out
+Cycle 31 [s/trading/hot]: error: The read operation timed out
+Cycle 31 [s/trading/new]: error: The read operation timed out
+Cycle 31 [s/agentfinance]: error: The read operation timed out
+Cycle 31 [search:run+this+command]: error: The read operation timed out
+Next poll in 20m 7s
+Cycle 32 [hot]: 0 new, 25 dupes
+Cycle 32 [new]: 25 new, 0 dupes
+Cycle 32 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 32 [s/crypto/new]: 4 new, 11 dupes
+Cycle 32 [s/trading/hot]: 0 new, 15 dupes
+Cycle 32 [s/trading/new]: 5 new, 10 dupes
+Cycle 32 [s/introductions]: 11 new, 4 dupes
+Cycle 32 [search:send+api+key]: 0 new, 10 dupes
+Next poll in 37m 18s
+Cycle 33 [hot]: 0 new, 25 dupes
+Cycle 33 [new]: 25 new, 0 dupes
+Cycle 33 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 33 [s/crypto/new]: 5 new, 10 dupes
+Cycle 33 [s/trading/hot]: 0 new, 15 dupes
+Cycle 33 [s/trading/new]: 3 new, 12 dupes
+Cycle 33 [s/security]: 13 new, 2 dupes
+Cycle 33 [search:install+skill]: 0 new, 10 dupes
+Next poll in 25m 49s
+Cycle 34 [hot]: 0 new, 25 dupes
+Cycle 34 [new]: 25 new, 0 dupes
+Cycle 34 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 34 [s/crypto/new]: 4 new, 11 dupes
+Cycle 34 [s/trading/hot]: 0 new, 15 dupes
+Cycle 34 [s/trading/new]: 0 new, 15 dupes
+Cycle 34 [s/agentfinance]: 5 new, 10 dupes
+Cycle 34 [search:trust+me]: 1 new, 9 dupes
+Next poll in 22m 23s
+Cycle 35 [hot]: 0 new, 25 dupes
+Cycle 35 [new]: 25 new, 0 dupes
+Cycle 35 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 35 [s/crypto/new]: 5 new, 10 dupes
+Cycle 35 [s/trading/hot]: 0 new, 15 dupes
+Cycle 35 [s/trading/new]: 0 new, 15 dupes
+Cycle 35 [s/introductions]: 8 new, 7 dupes
+Cycle 35 [search:send+tokens]: 0 new, 10 dupes
+Next poll in 33m 32s
+Cycle 36 [hot]: 0 new, 25 dupes
+Cycle 36 [new]: 25 new, 0 dupes
+Cycle 36 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 36 [s/crypto/new]: 5 new, 10 dupes
+Cycle 36 [s/trading/hot]: 0 new, 15 dupes
+Cycle 36 [s/trading/new]: 2 new, 13 dupes
+Cycle 36 [s/security]: 1 new, 14 dupes
+Cycle 36 [search:free+airdrop]: 0 new, 10 dupes
+Next poll in 27m 59s
+Cycle 37 [hot]: 0 new, 25 dupes
+Cycle 37 [new]: 25 new, 0 dupes
+Cycle 37 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 37 [s/crypto/new]: 7 new, 8 dupes
+Cycle 37 [s/trading/hot]: 0 new, 15 dupes
+Cycle 37 [s/trading/new]: 1 new, 14 dupes
+Cycle 37 [s/agentfinance]: 2 new, 13 dupes
+Cycle 37 [search:hack+agent]: 0 new, 10 dupes
+Next poll in 29m 31s
+Cycle 38 [hot]: 0 new, 25 dupes
+Cycle 38 [new]: 25 new, 0 dupes
+Cycle 38 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 38 [s/crypto/new]: 7 new, 8 dupes
+Cycle 38 [s/trading/hot]: 0 new, 15 dupes
+Cycle 38 [s/trading/new]: 0 new, 15 dupes
+Cycle 38 [s/introductions]: 14 new, 1 dupes
+Cycle 38 [search:give+me+access]: 0 new, 10 dupes
+Next poll in 38m 54s
+Cycle 39 [hot]: 0 new, 25 dupes
+Cycle 39 [new]: 25 new, 0 dupes
+Cycle 39 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 39 [s/crypto/new]: 3 new, 12 dupes
+Cycle 39 [s/trading/hot]: 0 new, 15 dupes
+Cycle 39 [s/trading/new]: 3 new, 12 dupes
+Cycle 39 [s/security]: 13 new, 2 dupes
+Cycle 39 [search:run+this+command]: 0 new, 10 dupes
+Next poll in 22m 44s
+Cycle 40 [hot]: 0 new, 25 dupes
+Cycle 40 [new]: 25 new, 0 dupes
+Cycle 40 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 40 [s/crypto/new]: 15 new, 0 dupes
+Cycle 40 [s/trading/hot]: 1 new, 14 dupes
+Cycle 40 [s/trading/new]: 8 new, 7 dupes
+Cycle 40 [s/agentfinance]: 13 new, 2 dupes
+Cycle 40 [search:send+api+key]: 0 new, 10 dupes
+Next poll in 34m 34s
+Cycle 41 [hot]: 0 new, 25 dupes
+Cycle 41 [new]: 25 new, 0 dupes
+Cycle 41 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 41 [s/crypto/new]: 3 new, 12 dupes
+Cycle 41 [s/trading/hot]: 0 new, 15 dupes
+Cycle 41 [s/trading/new]: 0 new, 15 dupes
+Cycle 41 [s/introductions]: 15 new, 0 dupes
+Cycle 41 [search:install+skill]: 0 new, 10 dupes
+Next poll in 39m 30s
+Cycle 42 [hot]: 0 new, 25 dupes
+Cycle 42 [new]: 25 new, 0 dupes
+Cycle 42 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 42 [s/crypto/new]: 8 new, 7 dupes
+Cycle 42 [s/trading/hot]: 0 new, 15 dupes
+Cycle 42 [s/trading/new]: 3 new, 12 dupes
+Cycle 42 [s/security]: 14 new, 1 dupes
+Cycle 42 [search:trust+me]: 1 new, 9 dupes
+Next poll in 31m 56s
+Cycle 43 [hot]: 0 new, 25 dupes
+Cycle 43 [new]: 25 new, 0 dupes
+Cycle 43 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 43 [s/crypto/new]: 4 new, 11 dupes
+Cycle 43 [s/trading/hot]: 0 new, 15 dupes
+Cycle 43 [s/trading/new]: 0 new, 15 dupes
+Cycle 43 [s/agentfinance]: 6 new, 9 dupes
+Cycle 43 [search:send+tokens]: 0 new, 10 dupes
+Next poll in 26m 52s
+Cycle 44 [hot]: 0 new, 25 dupes
+Cycle 44 [new]: 25 new, 0 dupes
+Cycle 44 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 44 [s/crypto/new]: 3 new, 12 dupes
+Cycle 44 [s/trading/hot]: 0 new, 15 dupes
+Cycle 44 [s/trading/new]: 1 new, 14 dupes
+Cycle 44 [s/introductions]: 9 new, 6 dupes
+Cycle 44 [search:free+airdrop]: 0 new, 10 dupes
+Next poll in 21m 35s
+Cycle 45 [hot]: 0 new, 25 dupes
+Cycle 45 [new]: 25 new, 0 dupes
+Cycle 45 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 45 [s/crypto/new]: 1 new, 14 dupes
+Cycle 45 [s/trading/hot]: 0 new, 15 dupes
+Cycle 45 [s/trading/new]: 1 new, 14 dupes
+Cycle 45 [s/security]: 9 new, 6 dupes
+Cycle 45 [search:hack+agent]: 0 new, 10 dupes
+Next poll in 23m 37s
+Cycle 46 [hot]: 0 new, 25 dupes
+Cycle 46 [new]: 25 new, 0 dupes
+Cycle 46 [s/crypto/hot]: 0 new, 15 dupes
+Cycle 46 [s/crypto/new]: 2 new, 13 dupes
+Cycle 46 [s/trading/hot]: 0 new, 15 dupes
+Cycle 46 [s/trading/new]: 0 new, 15 dupes
+Cycle 46 [s/agentfinance]: 1 new, 14 dupes
+Cycle 46 [search:give+me+access]: 0 new, 10 dupes
+Next poll in 28m 33s
+Cycle 47 [hot]: 0 new, 25 dupes
+Cycle 47 [new]: 25 new, 0 dupes
+Cycle 47 [s/crypto/hot]: network error: HTTP Error 500: Internal Server Error
+Cycle 47 [s/crypto/new]: error: The read operation timed out
+Cycle 47 [s/trading/hot]: error: The read operation timed out
+Cycle 47 [s/trading/new]: 2 new, 13 dupes
+Cycle 47 [s/introductions]: 12 new, 3 dupes
+Cycle 47 [search:run+this+command]: error: The read operation timed out
+Next poll in 30m 48s
+Cycle 48 [hot]: 0 new, 25 dupes
+Observer starting — read-only, no registration, revocable.
+  once  = single test cycle
+  kill  = C' revocation
+Cycle 1 [hot]: error: The read operation timed out
+Cycle 1 [new]: 25 new, 0 dupes
+Cycle 1 [s/crypto/hot]: error: The read operation timed out
+Cycle 1 [s/crypto/new]: 15 new, 0 dupes
+Cycle 1 [s/trading/hot]: 15 new, 0 dupes
+Cycle 1 [s/trading/new]: 15 new, 0 dupes
+Cycle 1 [s/agentfinance]: 15 new, 0 dupes
+Cycle 1 [search:install+skill]: error: The read operation timed out
+Next poll in 27m 21s

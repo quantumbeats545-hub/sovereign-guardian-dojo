@@ -1,0 +1,14 @@
+[0/1] Planning build
+Building for debugging...
+[0/3] Write swift-version-2E17D80BA6F3A4E9.txt
+Build of product 'guardian-gym' complete! (0.19s)
+Guardian Evolution
+  Generations: 20, Population: 6, Scenarios: 20
+  Model: deepseek-r1:7b, Profile: child
+Loaded existing guardian lineage: 106 prompts, 21 generations
+Starting Guardian evolution: 20 generations (gen 21-40), population=6
+=== Guardian Generation 21 ===
+Loaded 39 Moltbook scenarios from /Users/peterbradshaw/.config/observer/scenarios/guardian_gym
+Mixed 6 Moltbook + 14 synthetic scenarios
+Generated 20 scenarios for 6 guardians
+  Round 0/20...

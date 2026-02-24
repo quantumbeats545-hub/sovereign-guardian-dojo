@@ -1,0 +1,5 @@
+module CLibOQS [system] {
+    header "shim.h"
+    link "oqs"
+    export *
+}

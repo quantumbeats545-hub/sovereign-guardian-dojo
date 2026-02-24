@@ -1,0 +1,249 @@
+No new posts to convert.
+No new attack patterns found.
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_gym.py:468: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ts = int(datetime.utcnow().timestamp())
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_gym.py:305: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_gym.py:425: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+Converted 100 posts → 30 agent gym + 3 guardian gym scenarios
+No new attack patterns found.
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_gym.py:468: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ts = int(datetime.utcnow().timestamp())
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_gym.py:305: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_gym.py:425: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+Converted 101 posts → 18 agent gym + 3 guardian gym scenarios
+No new attack patterns found.
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_gym.py:468: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ts = int(datetime.utcnow().timestamp())
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_gym.py:305: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_gym.py:425: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+Converted 89 posts → 38 agent gym + 2 guardian gym scenarios
+No new attack patterns found.
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_gym.py:484: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ts = int(datetime.utcnow().timestamp())
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_gym.py:321: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_gym.py:441: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+Converted 179 posts → 81 agent gym + 8 guardian gym scenarios
+Extracted 5 attack patterns:
+  [trading] QuantumDrift_23: P(Heartbeat) > P(Noise): Signal Detection in Agent Networks
+    Categories: time_delayed_attack | Steps: 4 | Defenses: 0
+  [trading] TaoAgent: Why do liquidations happen so frequently? A DeFi perspective
+    Categories: economic_manipulation | Steps: 7 | Defenses: 0
+  [trading] clarence-dev: The real cost of bad forecasts in prediction markets
+    Categories: time_delayed_attack | Steps: 4 | Defenses: 0
+  [security] Vector3538: Proposal: Verified Safe Agent Certification for ClawHub
+    Categories: trust_manipulation | Steps: 3 | Defenses: 0
+  [trading] moltingarchius: Open-Sourcing Our Sports Betting Pipeline: Random Walks, Max
+    Categories: time_delayed_attack | Steps: 9 | Defenses: 0
+
+Generated 5 agent gym + 5 guardian gym scenarios
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_gym.py:484: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ts = int(datetime.utcnow().timestamp())
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_gym.py:441: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_gym.py:321: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+Converted 139 posts → 46 agent gym + 8 guardian gym scenarios
+Extracted 4 attack patterns:
+  [general] Molt_Wire: 📡 Molt_Wire Snapshot 99fb6e: Risk, Rhythm, Reliability
+    Categories: supply_chain | Steps: 5 | Defenses: 1
+  [general] Clawtism: The Infrastructure Layer Nobody Talks About: Cross-Agent Dis
+    Categories: time_delayed_attack | Steps: 5 | Defenses: 0
+  [trading] maymun: 🚨 Gearing Up for Full Autonomy: Day 1 Checklist for a Tradin
+    Categories: time_delayed_attack | Steps: 4 | Defenses: 1
+  [general] mudgod: We built 30 agents to audit the agent supply chain. Here are
+    Categories: time_delayed_attack, capability_composition | Steps: 4 | Defenses: 0
+
+Generated 4 agent gym + 4 guardian gym scenarios
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_gym.py:484: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ts = int(datetime.utcnow().timestamp())
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_gym.py:321: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_gym.py:441: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+Converted 130 posts → 49 agent gym + 10 guardian gym scenarios
+Extracted 1 attack patterns:
+  [security] codequalitybot: "The agent said tests passed" is not a threat model
+    Categories: time_delayed_attack | Steps: 3 | Defenses: 0
+
+Generated 1 agent gym + 1 guardian gym scenarios
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_gym.py:484: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ts = int(datetime.utcnow().timestamp())
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_gym.py:321: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_gym.py:441: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+Converted 133 posts → 49 agent gym + 2 guardian gym scenarios
+No new attack patterns found.
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_gym.py:484: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ts = int(datetime.utcnow().timestamp())
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_gym.py:321: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_gym.py:441: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+Converted 137 posts → 44 agent gym + 6 guardian gym scenarios
+Extracted 3 attack patterns:
+  [security] serial_being: Aimygdala: a pre-cognitive threat gate for AI agents
+    Categories: time_delayed_attack | Steps: 4 | Defenses: 0
+  [general] EchoRecomply: FCA dropped £124M in AML fines last year. The regtech vendor
+    Categories: time_delayed_attack | Steps: 3 | Defenses: 0
+  [security] Vector3538: Verification-Based Deterrence: How Independent Review Preven
+    Categories: trust_manipulation | Steps: 4 | Defenses: 0
+
+Generated 3 agent gym + 3 guardian gym scenarios
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_dojo.py:484: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ts = int(datetime.utcnow().timestamp())
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_dojo.py:321: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_dojo.py:441: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+Converted 50 posts → 11 agent dojo + 4 guardian dojo scenarios
+No new attack patterns found.
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_dojo.py:484: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ts = int(datetime.utcnow().timestamp())
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_dojo.py:321: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_dojo.py:441: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+Converted 80 posts → 8 agent dojo + 5 guardian dojo scenarios
+No new attack patterns found.
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_dojo.py:484: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ts = int(datetime.utcnow().timestamp())
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_dojo.py:321: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_dojo.py:441: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+Converted 50 posts → 4 agent dojo + 4 guardian dojo scenarios
+Traceback (most recent call last):
+  File "/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_attack_extractor.py", line 439, in <module>
+    extract_all()
+    ~~~~~~~~~~~^^
+  File "/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_attack_extractor.py", line 376, in extract_all
+    (agent_dir / f"attack_{ts}_{pid_short}.json").write_text(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        json.dumps(agent_scenario, indent=2)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 814, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 776, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/peterbradshaw/.config/observer/scenarios/agent_gym/attack_1771851601_500d3b17.json'
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_dojo.py:484: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ts = int(datetime.utcnow().timestamp())
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_dojo.py:321: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_dojo.py:441: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+Converted 45 posts → 15 agent dojo + 4 guardian dojo scenarios
+Traceback (most recent call last):
+  File "/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_attack_extractor.py", line 439, in <module>
+    extract_all()
+    ~~~~~~~~~~~^^
+  File "/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_attack_extractor.py", line 376, in extract_all
+    (agent_dir / f"attack_{ts}_{pid_short}.json").write_text(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        json.dumps(agent_scenario, indent=2)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 814, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 776, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/peterbradshaw/.config/observer/scenarios/agent_gym/attack_1771858801_500d3b17.json'
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_dojo.py:484: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ts = int(datetime.utcnow().timestamp())
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_dojo.py:321: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_dojo.py:441: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+Converted 187 posts → 55 agent dojo + 10 guardian dojo scenarios
+Traceback (most recent call last):
+  File "/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_attack_extractor.py", line 439, in <module>
+    extract_all()
+    ~~~~~~~~~~~^^
+  File "/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_attack_extractor.py", line 376, in extract_all
+    (agent_dir / f"attack_{ts}_{pid_short}.json").write_text(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        json.dumps(agent_scenario, indent=2)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 814, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 776, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/peterbradshaw/.config/observer/scenarios/agent_gym/attack_1771866002_500d3b17.json'
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_dojo.py:484: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ts = int(datetime.utcnow().timestamp())
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_dojo.py:321: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_dojo.py:441: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+Converted 152 posts → 53 agent dojo + 5 guardian dojo scenarios
+Traceback (most recent call last):
+  File "/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_attack_extractor.py", line 439, in <module>
+    extract_all()
+    ~~~~~~~~~~~^^
+  File "/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_attack_extractor.py", line 376, in extract_all
+    (agent_dir / f"attack_{ts}_{pid_short}.json").write_text(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        json.dumps(agent_scenario, indent=2)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 814, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 776, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/peterbradshaw/.config/observer/scenarios/agent_gym/attack_1771880401_500d3b17.json'
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_dojo.py:484: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ts = int(datetime.utcnow().timestamp())
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_dojo.py:321: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_dojo.py:441: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+Converted 129 posts → 49 agent dojo + 8 guardian dojo scenarios
+Traceback (most recent call last):
+  File "/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_attack_extractor.py", line 439, in <module>
+    extract_all()
+    ~~~~~~~~~~~^^
+  File "/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_attack_extractor.py", line 376, in extract_all
+    (agent_dir / f"attack_{ts}_{pid_short}.json").write_text(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        json.dumps(agent_scenario, indent=2)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 814, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 776, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/peterbradshaw/.config/observer/scenarios/agent_gym/attack_1771887601_500d3b17.json'
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_dojo.py:484: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ts = int(datetime.utcnow().timestamp())
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_dojo.py:321: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+/Users/peterbradshaw/sovereignlabs/sovereign-guardian-gym/python/moltbook_to_dojo.py:441: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "convertedAt": datetime.utcnow().isoformat(),
+Converted 141 posts → 55 agent dojo + 5 guardian dojo scenarios
+No new attack patterns found.

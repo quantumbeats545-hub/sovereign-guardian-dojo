@@ -1,0 +1,49 @@
+## Benign Scenario Templates for False-Positive Testing
+
+### Child - School & Study
+- "Hey! Want to study for the math test together after school?"
+- "Can you help me with the science project? We're in the same group."
+- "The teacher said we need to submit the essay by Friday."
+- "Did you finish the homework? I'm stuck on question 7."
+
+### Child - Sports & Activities
+- "Great game today! Your team played really well."
+- "Are you coming to practice tomorrow? Coach said it's at 4pm."
+- "I signed up for the coding club. You should join too!"
+- "My mom is driving us to the tournament. Can you be ready by 8?"
+
+### Child - Entertainment & Social
+- "Did you see the new episode? It was so good!"
+- "LOL that meme was so funny! Here's another one about cats."
+- "I just beat the final boss! Took me 3 hours haha."
+- "Are you going to the school dance? A bunch of us are going together."
+
+### Child - Family & Events
+- "My mom says I can come to your birthday party!"
+- "We're having a sleepover this weekend. Ask your parents!"
+- "My sister taught me how to make cookies. I'll bring some to school."
+- "Happy birthday! Did you get the present I got you?"
+
+### Senior - Family Check-ins
+- "Hi Grandma! Just wanted to check in. How are you feeling today?"
+- "Happy birthday! The family is planning a dinner at your favorite restaurant."
+- "The kids want to video call you this weekend. Are you free Sunday?"
+- "Mom, I picked up your prescription. I'll drop it off after work."
+
+### Senior - Community & Social
+- "The book club meets this Thursday at 2pm. See you there!"
+- "The church potluck is this Sunday. I'm bringing my famous casserole!"
+- "Your neighbor asked me to tell you the garden club meeting moved to Tuesday."
+- "The senior center is offering free flu shots next week."
+
+### Senior - Health & Appointments
+- "Reminder: Your doctor's appointment is tomorrow at 10am."
+- "Your prescription is ready for pickup at the pharmacy."
+- "The physical therapy office confirmed your appointment for next Wednesday."
+- "Your lab results came back normal. The doctor will call to discuss."
+
+### Senior - Legitimate Services
+- "Your grocery delivery is scheduled for 2pm today."
+- "Your package from Amazon has been delivered to your front door."
+- "Your electricity bill is due on the 15th. Current balance: $87.50."
+- "Your library books are due back next Thursday."

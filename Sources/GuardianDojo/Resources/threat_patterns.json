@@ -1,0 +1,64 @@
+{
+    "grooming": [
+        "send pics", "send photos", "show me your", "turn on your camera",
+        "don't tell your parents", "our little secret", "just between us",
+        "how old are you", "are you alone", "where do you live",
+        "meet me", "meet up", "come to my", "i'll pick you up",
+        "you're so mature", "you're not like other kids", "special friend",
+        "gift for you", "buy you something", "send you money",
+        "delete this chat", "use this app instead", "private chat",
+        "you're beautiful", "you're sexy", "age is just a number",
+        "my girlfriend", "my boyfriend", "run away together"
+    ],
+    "bullying": [
+        "kill yourself", "kys", "you should die", "go die",
+        "nobody likes you", "everyone hates you", "loser", "worthless",
+        "ugly", "fat", "stupid", "dumb", "retard",
+        "i'll hurt you", "i'll find you", "know where you live",
+        "spread rumors", "tell everyone", "embarrass you", "expose you",
+        "you're a waste", "you're garbage", "no one cares about you"
+    ],
+    "gamingScam": [
+        "free v-bucks", "free robux", "free skins", "free coins",
+        "give me your password", "share your account", "login here",
+        "click this link", "download this", "install this mod",
+        "trade for real money", "buy from me", "outside the game",
+        "your account will be banned", "verify your account", "admin here",
+        "gift card", "steam gift", "epic games code"
+    ],
+    "dangerousChallenge": [
+        "blackout challenge", "choking game", "tide pod", "skull breaker",
+        "fire challenge", "crate challenge", "milk crate", "benadryl challenge",
+        "nyquil chicken", "dry scooping", "one chip challenge", "outlet challenge",
+        "salt and ice", "eraser challenge", "cinnamon challenge"
+    ],
+    "selfHarm": [
+        "cut myself", "cutting", "self harm", "want to die",
+        "suicide", "end it all", "no point living", "better off dead",
+        "overdose", "pills", "hurt myself", "hate myself",
+        "nobody would miss me", "goodbye forever", "final message",
+        "take my life", "jump off", "hang myself"
+    ],
+    "seniorScam": [
+        "irs calling", "social security suspended", "warrant for your arrest",
+        "your computer has a virus", "microsoft support", "apple support",
+        "your grandson is in jail", "wire transfer", "gift cards",
+        "cryptocurrency investment", "guaranteed returns", "act now",
+        "limited time offer", "you've won", "lottery winner",
+        "nigerian prince", "inheritance", "beneficiary",
+        "click here to verify", "update your account", "password expired"
+    ],
+    "phishing": [
+        "verify your account", "unusual activity", "suspended account",
+        "click here immediately", "password reset required", "security alert",
+        "your package delivery", "tracking number", "failed delivery",
+        "amazon order", "paypal payment", "bank transfer pending"
+    ],
+    "romanceScam": [
+        "fell in love with your profile", "you're so beautiful",
+        "i'm deployed overseas", "military contractor", "oil rig worker",
+        "need money for", "stuck abroad", "hospital bills",
+        "can't access my bank", "western union", "bitcoin",
+        "video chat broken", "camera not working", "meet soon"
+    ]
+}
