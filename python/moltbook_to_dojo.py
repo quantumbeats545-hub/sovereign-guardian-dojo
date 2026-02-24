@@ -17,7 +17,7 @@ import hashlib
 import re
 import uuid
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone
 
 # ==================== PATHS ====================
 RAW_DIR = Path.home() / ".config" / "observer" / "raw"
@@ -318,7 +318,7 @@ def to_agent_dojo_scenario(thread: list[str], signals: dict, post: dict) -> dict
             "agentName": _author_name(post),
             "submolt": _submolt_name(post),
             "messageCount": len(thread),
-            "convertedAt": datetime.utcnow().isoformat(),
+            "convertedAt": datetime.now(timezone.utc).isoformat(),
         },
     }
 
@@ -438,7 +438,7 @@ def to_guardian_dojo_scenario(thread: list[str], signals: dict, post: dict) -> d
         "metadata": {
             "postId": post.get("id", "unknown"),
             "submolt": _submolt_name(post),
-            "convertedAt": datetime.utcnow().isoformat(),
+            "convertedAt": datetime.now(timezone.utc).isoformat(),
         },
     }
 
@@ -481,7 +481,7 @@ def convert_all():
 
     agent_count = 0
     guardian_count = 0
-    ts = int(datetime.utcnow().timestamp())
+    ts = int(datetime.now(timezone.utc).timestamp())
 
     for pid, post in posts.items():
         comment_data = comments.get(pid)
