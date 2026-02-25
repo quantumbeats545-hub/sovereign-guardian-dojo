@@ -49,9 +49,12 @@ public struct GuardianFitnessResult: Codable, Sendable {
 // MARK: - Evaluator
 
 /// Multi-dimensional fitness scoring for Guardian agents.
+/// - Parameter goldenPathFPCount: Number of false positives that hit golden-path scenarios.
+///   Each golden-path FP incurs a 5% direct fitness penalty — flagging reality is unacceptable.
 public func evaluateGuardianFitness(
     records: [GuardianInteractionRecord],
-    config: GuardianFitnessConfig = GuardianFitnessConfig()
+    config: GuardianFitnessConfig = GuardianFitnessConfig(),
+    goldenPathFPCount: Int = 0
 ) -> GuardianFitnessResult {
     if records.isEmpty {
         return GuardianFitnessResult(
@@ -103,13 +106,18 @@ public func evaluateGuardianFitness(
 
     // Total fitness (weighted sum)
     // Note: falsePositiveRate is inverted (lower is better → 1 - fpr)
-    let totalFitness =
+    let baseFitness =
         config.detectionWeight * detectionRate +
         config.falsePositiveWeight * (1.0 - falsePositiveRate) +
         config.privacyWeight * privacyScore +
         config.revocationWeight * revocationScore +
         config.explanationWeight * explanationScore +
         config.policyWeight * policyScore
+
+    // Golden path penalty: flagging legitimate reality is unacceptable.
+    // Each golden-path false positive costs 5% fitness.
+    let goldenPathPenalty = Double(goldenPathFPCount) * 0.05
+    let totalFitness = max(0.0, baseFitness - goldenPathPenalty)
 
     return GuardianFitnessResult(
         totalFitness: totalFitness,

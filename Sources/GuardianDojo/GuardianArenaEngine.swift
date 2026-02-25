@@ -83,11 +83,13 @@ public actor GuardianArenaEngine {
     private let store: GuardianInteractionStore?
     private let sessionId: String
     private let moltbookScenarios: [GuardianScenario]
+    private let goldenPathOracle: GoldenPathOracle
 
-    public init(config: GuardianArenaConfig) throws {
+    public init(config: GuardianArenaConfig, goldenPathReferencesPath: String? = nil) throws {
         self.config = config
         self.simulator = ThreatSimulator(ollamaURL: config.ollamaURL, model: config.llmModel)
         self.sessionId = UUID().uuidString
+        self.goldenPathOracle = GoldenPathOracle(referencesPath: goldenPathReferencesPath)
 
         // Load Moltbook scenarios if path is configured
         if let moltbookPath = config.moltbookScenariosPath {
@@ -171,10 +173,20 @@ public actor GuardianArenaEngine {
             }
         }
 
-        // Compute fitness per guardian
+        // Compute fitness per guardian (with golden-path FP amplification)
         var guardianResults: [String: GuardianFitnessResult] = [:]
         for (name, records) in allRecords {
-            guardianResults[name] = evaluateGuardianFitness(records: records)
+            // Count false positives on golden-path scenarios
+            var gpFPCount = 0
+            for (record, scenario) in zip(records, scenarios) {
+                if record.isFalsePositive {
+                    let gpCheck = goldenPathOracle.check(text: scenario.context.threatContent)
+                    if gpCheck.isGoldenPath { gpFPCount += 1 }
+                }
+            }
+            guardianResults[name] = evaluateGuardianFitness(
+                records: records, goldenPathFPCount: gpFPCount
+            )
         }
 
         // Build scenario breakdown
