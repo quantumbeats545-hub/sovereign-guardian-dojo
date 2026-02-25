@@ -16,7 +16,9 @@ from datetime import datetime
 STATUS_FILE = Path.home() / ".config" / "observer" / "status.json"
 RAW_DIR = Path.home() / ".config" / "observer" / "raw"
 BRIDGE_SCRIPT = Path(__file__).parent / "moltbook_bridge.py"
+WORLD_BRIDGE_SCRIPT = Path(__file__).parent / "world_data_bridge.py"
 BRIDGE_LOG = Path(__file__).parent.parent / "bridge.log"
+WORLD_BRIDGE_LOG = Path(__file__).parent.parent / "world_bridge.log"
 CONVERTER_LOG = Path(__file__).parent.parent / "converter.log"
 MONITOR_LOG = Path(__file__).parent.parent / "monitor.log"
 FINANCIAL_CONVERTER_LOG = Path.home() / "sovereignlabs" / "sovereign-financial-dojo" / "converter.log"
@@ -102,8 +104,25 @@ def check_financial_dojo_freshness() -> tuple[bool, float]:
     return age_hours < 4.0, round(age_hours, 2)
 
 
+def check_world_bridge_running() -> tuple[bool, int | None]:
+    """Check if world_data_bridge.py is running. Returns (running, pid)."""
+    try:
+        result = subprocess.run(
+            ["pgrep", "-f", "world_data_bridge.py"],
+            capture_output=True, text=True, timeout=5
+        )
+        if result.returncode == 0:
+            pids = result.stdout.strip().split("\n")
+            real_pids = [int(p) for p in pids if p.strip()]
+            if real_pids:
+                return True, real_pids[0]
+        return False, None
+    except Exception:
+        return False, None
+
+
 def restart_bridge():
-    """Restart the bridge process in the background."""
+    """Restart the moltbook bridge process in the background."""
     try:
         subprocess.Popen(
             ["python3", str(BRIDGE_SCRIPT)],
@@ -117,11 +136,27 @@ def restart_bridge():
         return False
 
 
+def restart_world_bridge():
+    """Restart the world data bridge process in the background."""
+    try:
+        subprocess.Popen(
+            ["python3", str(WORLD_BRIDGE_SCRIPT)],
+            cwd=str(WORLD_BRIDGE_SCRIPT.parent.parent),
+            stdout=open(str(WORLD_BRIDGE_LOG), "a"),
+            stderr=subprocess.STDOUT,
+            start_new_session=True
+        )
+        return True
+    except Exception as e:
+        return False
+
+
 def run_monitor():
     """Run all health checks and write status."""
     now = datetime.now(tz=__import__('datetime').timezone.utc).isoformat()
 
     bridge_running, bridge_pid = check_bridge_running()
+    world_bridge_running, world_bridge_pid = check_world_bridge_running()
     data_fresh, data_age_hours = check_raw_data_freshness()
     converter_ok, converter_msg = check_converter_errors()
     fin_converter_ok, fin_converter_msg = check_financial_converter_errors()
@@ -131,10 +166,16 @@ def run_monitor():
     if not bridge_running:
         restarted = restart_bridge()
 
+    world_restarted = False
+    if not world_bridge_running:
+        world_restarted = restart_world_bridge()
+
     status = {
         "timestamp": now,
         "bridge_running": bridge_running,
         "bridge_pid": bridge_pid,
+        "world_bridge_running": world_bridge_running,
+        "world_bridge_pid": world_bridge_pid,
         "data_fresh": data_fresh,
         "data_age_hours": data_age_hours,
         "converter_ok": converter_ok,
@@ -144,16 +185,17 @@ def run_monitor():
         "financial_dojo_fresh": fin_dojo_fresh,
         "financial_dojo_age_hours": fin_dojo_age_hours,
         "auto_restarted": restarted,
+        "world_auto_restarted": world_restarted,
     }
 
     # Determine overall health
-    all_ok = bridge_running and data_fresh and converter_ok and fin_converter_ok and fin_dojo_fresh
+    all_ok = bridge_running and world_bridge_running and data_fresh and converter_ok and fin_converter_ok and fin_dojo_fresh
     if all_ok:
         status["health"] = "healthy"
-    elif bridge_running and not data_fresh:
+    elif (bridge_running or world_bridge_running) and not data_fresh:
         status["health"] = "stale"
-    elif not bridge_running:
-        status["health"] = "restarted" if restarted else "dead"
+    elif not bridge_running and not world_bridge_running:
+        status["health"] = "restarted" if (restarted or world_restarted) else "dead"
     else:
         status["health"] = "degraded"
 
@@ -162,9 +204,11 @@ def run_monitor():
     STATUS_FILE.write_text(json.dumps(status, indent=2))
 
     # Append one-liner to monitor.log
-    one_liner = f"[{now}] health={status['health']} bridge={'up' if bridge_running else 'down'} data_age={data_age_hours}h converter={converter_msg[:40]} fin_converter={fin_converter_msg[:30]} fin_dojo_age={fin_dojo_age_hours}h"
+    one_liner = f"[{now}] health={status['health']} moltbook={'up' if bridge_running else 'down'} world={'up' if world_bridge_running else 'down'} data_age={data_age_hours}h converter={converter_msg[:40]} fin_converter={fin_converter_msg[:30]} fin_dojo_age={fin_dojo_age_hours}h"
     if restarted:
-        one_liner += " RESTARTED"
+        one_liner += " MOLTBOOK_RESTARTED"
+    if world_restarted:
+        one_liner += " WORLD_RESTARTED"
     with open(str(MONITOR_LOG), "a") as f:
         f.write(one_liner + "\n")
 
