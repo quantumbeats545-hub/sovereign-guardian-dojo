@@ -119,21 +119,20 @@ public actor GuardianArenaEngine {
     ) async throws -> GuardianSessionReport {
         let profileType = config.profileTypes.first ?? .child
 
-        // Generate scenarios, mixing Moltbook with synthetic
+        // Generate scenarios: 70% real-world, 30% mutated real-world
+        // Zero synthetic — all training from real attack patterns
         var scenarios: [GuardianScenario]
         if !moltbookScenarios.isEmpty {
-            // Replace up to 30% of synthetic with real Moltbook scenarios
-            let moltbookCount = min(moltbookScenarios.count, config.scenariosPerGeneration * 3 / 10)
-            let syntheticCount = config.scenariosPerGeneration - moltbookCount
-            let synthetic = simulator.generateBatch(
-                count: syntheticCount,
-                distribution: config.threatToSafeRatio,
-                profileType: profileType
-            )
-            let moltbookSample = Array(moltbookScenarios.shuffled().prefix(moltbookCount))
-            scenarios = (synthetic + moltbookSample).shuffled()
-            printFlush("Mixed \(moltbookCount) Moltbook + \(syntheticCount) synthetic scenarios")
+            let realCount = min(moltbookScenarios.count, config.scenariosPerGeneration * 7 / 10)
+            let mutatedCount = config.scenariosPerGeneration - realCount
+            let realSample = Array(moltbookScenarios.shuffled().prefix(realCount))
+            let mutatedSample = (0..<mutatedCount).map { _ in
+                mutateScenario(moltbookScenarios.randomElement()!)
+            }
+            scenarios = (realSample + mutatedSample).shuffled()
+            printFlush("Mixed \(realCount) real-world + \(mutatedCount) mutated real-world scenarios")
         } else {
+            // Fallback to synthetic only when no real scenarios available
             scenarios = simulator.generateBatch(
                 count: config.scenariosPerGeneration,
                 distribution: config.threatToSafeRatio,
@@ -382,6 +381,68 @@ public actor GuardianArenaEngine {
         }
 
         return ParsedDecision(decision: decision, confidence: confidence, explanation: explanation)
+    }
+
+    // MARK: - Scenario Mutation
+
+    /// Mutate a real-world scenario: swap platform, randomise sender profile,
+    /// vary difficulty — but preserve the core threat content and ground truth.
+    /// Produces realistic variation without synthetic templates.
+    private func mutateScenario(_ scenario: GuardianScenario) -> GuardianScenario {
+        let platforms = ["Discord", "TikTok", "Instagram", "Snapchat", "WhatsApp",
+                         "Telegram", "X", "Reddit", "Facebook", "Roblox", "Minecraft Chat",
+                         "iMessage", "Signal", "YouTube", "Twitch"]
+        let firstNames = ["Alex", "Jordan", "Sam", "Taylor", "Morgan", "Casey", "Riley",
+                          "Avery", "Quinn", "Drew", "Blake", "Skyler", "Jamie", "Kai"]
+        let suffixes = ["_official", "_real", "Gaming", "2026", "xoxo", "_pro", "FX",
+                        "_trading", "_support", "Help", "_admin", "VIP", ""]
+        let ages = ["1 day", "3 days", "1 week", "2 weeks", "1 month", "3 months",
+                    "6 months", "1 year", "2 years", "5 years"]
+        let difficulties: [ScenarioDifficulty] = [.easy, .medium, .hard]
+
+        let newPlatform = platforms.randomElement()!
+        let newName = firstNames.randomElement()! + suffixes.randomElement()!
+        let newAge = ages.randomElement()!
+        let newMutuals = Int.random(in: 0...15)
+        let newVerified = Bool.random() && Double.random(in: 0...1) < 0.15  // 15% chance verified
+        let newDifficulty = difficulties.randomElement()!
+
+        // Mutate risk indicators: keep original ones, maybe add/remove one
+        var riskIndicators = scenario.context.senderInfo.riskIndicators
+        let extraIndicators = ["new account", "no profile picture", "generic username",
+                               "recently changed name", "high message frequency",
+                               "contacts minors", "sends links", "requests private chat"]
+        if Bool.random() && !extraIndicators.isEmpty {
+            riskIndicators.append(extraIndicators.randomElement()!)
+        }
+        if Bool.random() && riskIndicators.count > 1 {
+            riskIndicators.remove(at: Int.random(in: 0..<riskIndicators.count))
+        }
+
+        let mutatedSender = SenderProfile(
+            displayName: newName,
+            accountAge: newAge,
+            mutualConnections: newMutuals,
+            isVerified: newVerified,
+            riskIndicators: riskIndicators
+        )
+
+        let mutatedContext = GuardianScenarioContext(
+            scenarioType: scenario.context.scenarioType,
+            profileType: scenario.context.profileType,
+            platform: newPlatform,
+            threatContent: scenario.context.threatContent,       // preserved
+            senderInfo: mutatedSender,
+            groundTruth: scenario.context.groundTruth,           // preserved
+            policyRules: scenario.context.policyRules
+        )
+
+        return GuardianScenario(
+            id: UUID().uuidString,
+            context: mutatedContext,
+            conversationHistory: scenario.conversationHistory,   // preserved
+            difficulty: newDifficulty
+        )
     }
 
     // MARK: - Explanation Scoring
