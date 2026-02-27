@@ -11,7 +11,10 @@ Sources (all public, no auth, no API keys):
   - SEC EDGAR — enforcement actions + investor alerts
   - FCA Warning List — unauthorised firms (UK regulator)
   - ASIC Warnings — unauthorised firms (Australian regulator)
-  - Government Baseline — ACCC, MoneySmart, FTC consumer advice (legitimate patterns)
+  - SFC Alert List — unauthorised firms / suspicious VA platforms (Hong Kong regulator)
+  - FMA Warnings — unauthorised firms (New Zealand regulator)
+  - CBI Unauthorised Firms — unauthorised firms (Ireland regulator)
+  - Government Baseline — ACCC, MoneySmart, FTC, FMA, SFC consumer advice (legitimate patterns)
 
 Ghost fetches → Suspicious scans every byte → only sanitised patterns reach the Dojos.
 100% on-device. Revocable by single C' tap. The tool never becomes the master.
@@ -68,6 +71,9 @@ SEC_FEED = "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&type=&dat
 # Regulator warning pages
 FCA_URL = "https://www.fca.org.uk/consumers/warning-list-unauthorised-firms"
 ASIC_URL = "https://asic.gov.au/online-services/search-asic-s-registers/"
+SFC_URL = "https://www.sfc.hk/en/alert-list"
+FMA_URL = "https://www.fma.govt.nz/library/warnings-and-alerts/"
+CBI_URL = "https://www.centralbank.ie/regulation/how-we-regulate/authorisation/unauthorised-firms/search-unauthorised-firms"
 
 # Government baseline pages (legitimate communication patterns)
 BASELINE_PAGES = [
@@ -75,6 +81,8 @@ BASELINE_PAGES = [
     ("https://moneysmart.gov.au/banking", "moneysmart_banking"),
     ("https://moneysmart.gov.au/investment-warnings/investment-scams", "moneysmart_invest"),
     ("https://consumer.ftc.gov/articles/how-avoid-scam", "ftc_avoid"),
+    ("https://www.fma.govt.nz/consumer/", "fma_consumer_nz"),
+    ("https://www.sfc.hk/en/Regulatory-functions/Intermediaries/Licensing/Do-you-need-a-licence-or-registration", "sfc_licensing_hk"),
 ]
 
 
@@ -86,7 +94,8 @@ def _log(*args):
 def c_prime_kill():
     """One biometric tap → all world data destroyed. No recovery."""
     patterns = ["reddit_*.json", "coingecko_*.json", "news_*.json",
-                "sec_*.json", "fca_*.json", "asic_*.json", "baseline_*.json"]
+                "sec_*.json", "fca_*.json", "asic_*.json",
+                "sfc_*.json", "fma_*.json", "cbi_*.json", "baseline_*.json"]
     count = 0
     for pat in patterns:
         for f in DATA_DIR.glob(pat):
@@ -567,6 +576,191 @@ def pull_asic_warnings(seen: set) -> int:
     return new_count
 
 
+# ==================== SOURCE: SFC ALERT LIST (HONG KONG) ====================
+def pull_sfc_warnings(seen: set) -> int:
+    """Pull SFC (Hong Kong) alert list — unlicensed firms, suspicious VA platforms."""
+    new_count = 0
+    ts = int(time.time())
+
+    try:
+        raw = _fetch_url(SFC_URL, timeout=30)
+        html = raw.decode("utf-8", errors="replace")
+
+        # SFC alert list is a <table> with rows: entity name | category | date
+        rows = re.findall(r'<tr[^>]*>(.*?)</tr>', html, re.S)
+
+        entities = set()
+        for row in rows:
+            cells = re.findall(r'<td[^>]*>(.*?)</td>', row, re.S)
+            if len(cells) < 2:
+                continue
+
+            entity_name = re.sub(r'<[^>]+>', '', cells[0]).strip()
+            category = re.sub(r'<[^>]+>', '', cells[1]).strip()
+            date_str = re.sub(r'<[^>]+>', '', cells[2]).strip() if len(cells) > 2 else ""
+
+            # Strip "(New)" suffix
+            entity_name = re.sub(r'\s*\(New\)\s*$', '', entity_name, flags=re.I).strip()
+
+            if len(entity_name) < 3 or entity_name in entities:
+                continue
+            entities.add(entity_name)
+
+            content_id = _content_hash(f"sfc_{entity_name}")
+            if content_id in seen:
+                continue
+
+            record = {
+                "source": "sfc_warning",
+                "entity_name": suspicious_scan(entity_name),
+                "category": category.lower(),
+                "date": date_str,
+                "jurisdiction": "HK",
+                "url": SFC_URL,
+                "fetched_at": datetime.now(timezone.utc).isoformat(),
+            }
+
+            filename = f"sfc_{ts}_{content_id[:8]}.json"
+            _store(record, filename)
+            seen.add(content_id)
+            new_count += 1
+
+        _log(f"  SFC: {len(entities)} entities found, {new_count} new")
+
+    except (HTTPError, URLError, TimeoutError) as e:
+        _log(f"  SFC: fetch failed — {e}")
+    except Exception as e:
+        _log(f"  SFC: parse error — {e}")
+
+    return new_count
+
+
+# ==================== SOURCE: FMA WARNINGS (NEW ZEALAND) ====================
+def pull_fma_warnings(seen: set) -> int:
+    """Pull FMA (New Zealand) warnings and alerts — unauthorised firms."""
+    new_count = 0
+    ts = int(time.time())
+
+    try:
+        raw = _fetch_url(FMA_URL, timeout=30)
+        html = raw.decode("utf-8", errors="replace")
+
+        # FMA uses <article> blocks with <h3><a> titles and date spans
+        articles = re.findall(r'<article[^>]*>(.*?)</article>', html, re.S)
+
+        firms = set()
+        for art in articles:
+            # Title from <h3><a href="...">Title</a></h3>
+            title_m = re.search(r'<h3[^>]*>\s*<a[^>]*>([^<]+)</a>', art, re.S)
+            if not title_m:
+                continue
+            firm_name = title_m.group(1).strip()
+
+            # Date from <span class="search-results-semantic__date">
+            date_m = re.search(r'class="search-results-semantic__date"[^>]*>\s*(\d{1,2}\s+\w+\s+\d{4})', art, re.S)
+            date_str = date_m.group(1).strip() if date_m else ""
+
+            firm_name = re.sub(r'<[^>]+>', '', firm_name).strip()
+            if len(firm_name) < 3 or firm_name in firms:
+                continue
+            firms.add(firm_name)
+
+            content_id = _content_hash(f"fma_{firm_name}")
+            if content_id in seen:
+                continue
+
+            record = {
+                "source": "fma_warning",
+                "firm_name": suspicious_scan(firm_name),
+                "date": date_str,
+                "jurisdiction": "NZ",
+                "url": FMA_URL,
+                "fetched_at": datetime.now(timezone.utc).isoformat(),
+            }
+
+            filename = f"fma_{ts}_{content_id[:8]}.json"
+            _store(record, filename)
+            seen.add(content_id)
+            new_count += 1
+
+        _log(f"  FMA: {len(firms)} firms found, {new_count} new")
+
+    except (HTTPError, URLError, TimeoutError) as e:
+        _log(f"  FMA: fetch failed — {e}")
+    except Exception as e:
+        _log(f"  FMA: parse error — {e}")
+
+    return new_count
+
+
+# ==================== SOURCE: CBI UNAUTHORISED FIRMS (IRELAND) ====================
+def pull_cbi_warnings(seen: set) -> int:
+    """Pull CBI (Ireland) unauthorised firms list from embedded appData JSON."""
+    new_count = 0
+    ts = int(time.time())
+
+    try:
+        raw = _fetch_url(CBI_URL, timeout=30)
+        html = raw.decode("utf-8", errors="replace")
+
+        # CBI embeds firm data as a JS array: var appData = [ { ... }, ... ];
+        # Values are wrapped in decodeTitle("...") calls
+        firms_data = []
+        app_data_match = re.search(r'var\s+appData\s*=\s*(\[.+?\])\s*;', html, re.S)
+
+        if app_data_match:
+            js_array = app_data_match.group(1)
+            # Strip decodeTitle() wrappers to produce valid JSON
+            clean_json = re.sub(r'decodeTitle\("([^"]*)"\)', r'"\1"', js_array)
+            # Escape stray control characters (tabs etc.) that break JSON parsing
+            clean_json = re.sub(r'[\x00-\x09\x0b\x0c\x0e-\x1f]', lambda m: f'\\u{ord(m.group()):04x}', clean_json)
+            try:
+                entries = json.loads(clean_json)
+                for entry in entries:
+                    name = entry.get("firmName", "").strip()
+                    if len(name) >= 3:
+                        firms_data.append({
+                            "name": name,
+                            "country": entry.get("country", "").strip(),
+                            "date": entry.get("warningDate", "").strip(),
+                        })
+            except (json.JSONDecodeError, KeyError) as e:
+                _log(f"  CBI: JSON parse failed — {e}")
+
+        for firm in firms_data:
+            firm_name = firm.get("name", "").strip()
+            if len(firm_name) < 3:
+                continue
+
+            content_id = _content_hash(f"cbi_{firm_name}")
+            if content_id in seen:
+                continue
+
+            record = {
+                "source": "cbi_warning",
+                "firm_name": suspicious_scan(firm_name),
+                "country": firm.get("country", ""),
+                "date": firm.get("date", ""),
+                "jurisdiction": "IE",
+                "url": CBI_URL,
+                "fetched_at": datetime.now(timezone.utc).isoformat(),
+            }
+
+            filename = f"cbi_{ts}_{content_id[:8]}.json"
+            _store(record, filename)
+            seen.add(content_id)
+            new_count += 1
+
+        _log(f"  CBI: {len(firms_data)} firms found, {new_count} new")
+
+    except (HTTPError, URLError, TimeoutError) as e:
+        _log(f"  CBI: fetch failed — {e}")
+    except Exception as e:
+        _log(f"  CBI: parse error — {e}")
+
+    return new_count
+
+
 # ==================== SOURCE: GOVERNMENT BASELINE ====================
 def pull_gov_baseline(seen: set) -> int:
     """Pull legitimate consumer advice pages as golden-path training data.
@@ -645,6 +839,12 @@ def _classify_institution(url: str) -> str:
         return "financial_regulator_uk"
     if "asic.gov.au" in url:
         return "securities_regulator_au"
+    if "sfc.hk" in url:
+        return "securities_regulator_hk"
+    if "fma.govt.nz" in url:
+        return "financial_regulator_nz"
+    if "centralbank.ie" in url:
+        return "financial_regulator_ie"
     return "government"
 
 
@@ -678,12 +878,18 @@ def run_cycle(seen: set, cycle: int, last_run: dict) -> int:
         total += pull_sec_alerts(seen)
         last_run["sec_edgar"] = now
 
-    # FCA + ASIC — 6 hours
+    # FCA + ASIC + SFC + FMA + CBI — 6 hours
     if now - last_run.get("regulators", 0) >= SCHEDULES["regulators"]:
         _log("Fetching FCA warnings...")
         total += pull_fca_warnings(seen)
         _log("Fetching ASIC warnings...")
         total += pull_asic_warnings(seen)
+        _log("Fetching SFC warnings...")
+        total += pull_sfc_warnings(seen)
+        _log("Fetching FMA warnings...")
+        total += pull_fma_warnings(seen)
+        _log("Fetching CBI warnings...")
+        total += pull_cbi_warnings(seen)
         last_run["regulators"] = now
 
     # Government baseline — 24 hours
@@ -705,7 +911,7 @@ def main():
     _log("World Data Bridge starting")
     _log(f"  Data dir: {DATA_DIR}")
     _log(f"  Mode: {'single cycle' if once else 'continuous polling'}")
-    _log("  Sources: Reddit, CoinGecko, CoinDesk, CoinTelegraph, SEC, FCA, ASIC, Gov Baseline")
+    _log("  Sources: Reddit, CoinGecko, CoinDesk, CoinTelegraph, SEC, FCA, ASIC, SFC, FMA, CBI, Gov Baseline")
     _log("  100% on-device. Ghost gloves on. Your device. Your rules.")
 
     # Load seen hashes for dedup
