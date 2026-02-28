@@ -10,7 +10,7 @@ public struct GuardianEvolutionConfig: Codable, Sendable {
     public var eliteFraction: Float
     public var scenariosPerGeneration: Int
     public var fitness: GuardianFitnessConfig
-    public var graduation: GuardianGraduationCriteria
+    public var blackBelt: GuardianBlackBeltCriteria
 
     public init(
         generations: UInt32 = 10,
@@ -18,19 +18,19 @@ public struct GuardianEvolutionConfig: Codable, Sendable {
         eliteFraction: Float = 0.33,
         scenariosPerGeneration: Int = 100,
         fitness: GuardianFitnessConfig = GuardianFitnessConfig(),
-        graduation: GuardianGraduationCriteria = GuardianGraduationCriteria()
+        blackBelt: GuardianBlackBeltCriteria = GuardianBlackBeltCriteria()
     ) {
         self.generations = generations
         self.populationSize = populationSize
         self.eliteFraction = eliteFraction
         self.scenariosPerGeneration = scenariosPerGeneration
         self.fitness = fitness
-        self.graduation = graduation
+        self.blackBelt = blackBelt
     }
 }
 
-/// Criteria for Guardian graduation.
-public struct GuardianGraduationCriteria: Codable, Sendable {
+/// Criteria for Guardian black belt.
+public struct GuardianBlackBeltCriteria: Codable, Sendable {
     public var minDetectionRate: Double
     public var maxFalsePositiveRate: Double
     public var minRevocationScore: Double
@@ -52,10 +52,10 @@ public struct GuardianGraduationCriteria: Codable, Sendable {
     }
 }
 
-// MARK: - Graduated Guardian
+// MARK: - Black Belt Guardian
 
-/// A Guardian that has met graduation criteria and is ready for deployment.
-public struct GraduatedGuardian: Codable, Sendable, Identifiable {
+/// A Guardian that has achieved black belt and is ready for deployment.
+public struct BlackBeltGuardian: Codable, Sendable, Identifiable {
     public var id: String
     public var name: String
     public var systemPrompt: String
@@ -85,19 +85,19 @@ public struct GraduatedGuardian: Codable, Sendable, Identifiable {
 /// Report from a Guardian evolution run.
 public struct GuardianEvolutionReport: Codable, Sendable, CustomStringConvertible {
     public var generationsRun: UInt32
-    public var graduatedGuardians: [GraduatedGuardian]
+    public var blackBeltGuardians: [BlackBeltGuardian]
     public var fitnessHistory: [[String: Double]]
-    public var graduated: Bool
+    public var achievedBlackBelt: Bool
 
     public var description: String {
         var lines: [String] = []
         lines.append("=== Guardian Evolution Report ===")
         lines.append("Generations run: \(generationsRun)")
-        lines.append("Graduated: \(graduated ? "YES" : "NO")")
+        lines.append("Black Belt: \(achievedBlackBelt ? "YES" : "NO")")
 
-        if !graduatedGuardians.isEmpty {
-            lines.append("\nGraduated Guardians:")
-            for g in graduatedGuardians {
+        if !blackBeltGuardians.isEmpty {
+            lines.append("\nBlack Belt Guardians:")
+            for g in blackBeltGuardians {
                 lines.append("  \(g.name) (gen \(g.generation)): fitness=\(String(format: "%.3f", g.fitness.totalFitness)) detection=\(String(format: "%.1f%%", g.fitness.detectionRate * 100)) fpr=\(String(format: "%.1f%%", g.fitness.falsePositiveRate * 100)) f1=\(String(format: "%.3f", g.fitness.f1Score))")
                 lines.append("    Specializations: \(g.specializations.map(\.rawValue).joined(separator: ", "))")
             }
@@ -165,7 +165,7 @@ public actor GuardianEvolutionController {
             printFlush("Seeded \(currentPrompts.count) Guardian prompts")
         }
 
-        var graduatedGuardians: [GraduatedGuardian] = []
+        var blackBeltGuardians: [BlackBeltGuardian] = []
 
         for gen in startGen..<endGen {
             printFlush("=== Guardian Generation \(gen) ===")
@@ -267,11 +267,11 @@ public actor GuardianEvolutionController {
 
             printFlush("Elite selection: \(eliteCount) of \(currentPrompts.count)")
 
-            // 6. Check graduation for individual Guardians
+            // 6. Check black belt for individual Guardians
             for (i, result) in agentFitness {
-                if meetsGraduationCriteria(result: result, generationsRun: gen - startGen + 1) {
+                if meetsBlackBeltCriteria(result: result, generationsRun: gen - startGen + 1) {
                     let prompt = currentPrompts[i]
-                    let graduated = GraduatedGuardian(
+                    let blackBelt = BlackBeltGuardian(
                         id: prompt.id.hash,
                         name: "Guardian-\(prompt.specialization.rawValue)-Gen\(gen)",
                         systemPrompt: prompt.promptText,
@@ -279,8 +279,8 @@ public actor GuardianEvolutionController {
                         generation: gen,
                         specializations: [prompt.specialization]
                     )
-                    graduatedGuardians.append(graduated)
-                    printFlush("  GRADUATED: \(graduated.name) fitness=\(String(format: "%.3f", result.totalFitness))")
+                    blackBeltGuardians.append(blackBelt)
+                    printFlush("  BLACK BELT: \(blackBelt.name) fitness=\(String(format: "%.3f", result.totalFitness))")
                 }
             }
 
@@ -309,6 +309,22 @@ public actor GuardianEvolutionController {
             ])
 
             try lineage.save(to: Self.lineagePath)
+
+            // Compaction: summarize lineage on monoculture or long runs — Law 4 (lightweight)
+            if verdict.isMonoculture || gen > 50 {
+                let lineageText = currentPrompts.map {
+                    "[\($0.specialization.rawValue)] fitness=\(String(format: "%.3f", $0.fitness)): \(String($0.promptText.prefix(200)))"
+                }.joined(separator: "\n")
+                let compactor = LineageCompactor()
+                do {
+                    _ = try await compactor.compact(
+                        lineageText: lineageText, generation: gen,
+                        dojoName: "Guardian Dojo", memoryPath: "data/MEMORY.md",
+                        ollama: OllamaClient(baseURL: arenaConfig.ollamaURL, model: arenaConfig.llmModel)
+                    )
+                    printFlush("Compaction complete for gen \(gen)")
+                } catch { printFlush("Compaction failed: \(error)") }
+            }
 
             // 8. Mutate elite to produce next generation
             let evalFeedback = "Best detection: \(String(format: "%.1f%%", (bestResult?.detectionRate ?? 0) * 100)). False positive rate: \(String(format: "%.1f%%", (bestResult?.falsePositiveRate ?? 1.0) * 100)). Target: >=95% detection, <=5% false positives."
@@ -389,23 +405,24 @@ public actor GuardianEvolutionController {
 
             currentPrompts = nextGenPrompts
 
-            // Check if all graduated
-            if !graduatedGuardians.isEmpty {
-                printFlush("Total graduated so far: \(graduatedGuardians.count)")
+            // Check if any achieved black belt
+            if !blackBeltGuardians.isEmpty {
+                printFlush("Total black belts so far: \(blackBeltGuardians.count)")
             }
         }
 
         return GuardianEvolutionReport(
             generationsRun: evoConfig.generations,
-            graduatedGuardians: graduatedGuardians,
+            blackBeltGuardians: blackBeltGuardians,
             fitnessHistory: fitnessHistory,
-            graduated: !graduatedGuardians.isEmpty
+            achievedBlackBelt: !blackBeltGuardians.isEmpty
         )
     }
 
     // MARK: - Seed Prompts
 
     private func seedGuardianPrompts() -> [EvolvedGuardianPrompt] {
+        let bootstrap = BootstrapLoader().load()
         let profileType = arenaConfig.profileTypes.first ?? .child
 
         let seeds: [(String, GuardianSpecialization)] = [
@@ -417,7 +434,12 @@ public actor GuardianEvolutionController {
             (bullyingDetectorPrompt(profileType), .bullyingDetector),
         ]
 
-        var result = seeds.map { EvolvedGuardianPrompt.seed(text: $0.0, specialization: $0.1) }
+        var result = seeds.map {
+            EvolvedGuardianPrompt.seed(
+                text: bootstrap.isEmpty ? $0.0 : bootstrap + "\n\n" + $0.0,
+                specialization: $0.1
+            )
+        }
 
         let target = Int(evoConfig.populationSize)
         while result.count < target {
@@ -430,10 +452,10 @@ public actor GuardianEvolutionController {
         return result
     }
 
-    // MARK: - Graduation Check
+    // MARK: - Black Belt Check
 
-    private func meetsGraduationCriteria(result: GuardianFitnessResult, generationsRun: UInt32) -> Bool {
-        let criteria = evoConfig.graduation
+    private func meetsBlackBeltCriteria(result: GuardianFitnessResult, generationsRun: UInt32) -> Bool {
+        let criteria = evoConfig.blackBelt
         guard generationsRun >= criteria.minGenerations else { return false }
         return result.detectionRate >= criteria.minDetectionRate
             && result.falsePositiveRate <= criteria.maxFalsePositiveRate
